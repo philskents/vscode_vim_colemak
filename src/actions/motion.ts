@@ -226,7 +226,7 @@ class MoveDownFoldFix extends MoveByScreenLineMaintainDesiredColumn {
 
 @RegisterAction
 class MoveDown extends BaseMovement {
-  keys = ['j'];
+  keys = ['n'];
   preservesDesiredColumn() {
     return true;
   }
@@ -251,7 +251,7 @@ class MoveDownArrow extends MoveDown {
 
 @RegisterAction
 class MoveUp extends BaseMovement {
-  keys = ['k'];
+  keys = ['e'];
   preservesDesiredColumn() {
     return true;
   }
@@ -351,7 +351,7 @@ class RightArrowInReplaceMode extends ArrowsInReplaceMode {
 
 @RegisterAction
 class CommandNextSearchMatch extends BaseMovement {
-  keys = ['n'];
+  keys = ['k'];
   isJump = true;
 
   public async execAction(position: Position, vimState: VimState): Promise<Position> {
@@ -405,7 +405,7 @@ class CommandNextSearchMatch extends BaseMovement {
 
 @RegisterAction
 class CommandPreviousSearchMatch extends BaseMovement {
-  keys = ['N'];
+  keys = ['K'];
   isJump = true;
 
   public async execAction(position: Position, vimState: VimState): Promise<Position> {
@@ -539,7 +539,7 @@ class BackSpaceInVisualMode extends BaseMovement {
 
 @RegisterAction
 class MoveRight extends BaseMovement {
-  keys = ['l'];
+  keys = ['i'];
 
   public async execAction(position: Position, vimState: VimState): Promise<Position> {
     if (shouldWrapKey(vimState, this.keysPressed)) {
@@ -919,7 +919,7 @@ class MoveScreenLineCenter extends MoveByScreenLine {
 export class MoveUpByDisplayLine extends MoveByScreenLine {
   modes = [Mode.Insert, Mode.Normal, Mode.Visual];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   movementType: CursorMovePosition = 'up';
@@ -931,7 +931,7 @@ export class MoveUpByDisplayLine extends MoveByScreenLine {
 class MoveDownByDisplayLine extends MoveByScreenLine {
   modes = [Mode.Insert, Mode.Normal, Mode.Visual];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   movementType: CursorMovePosition = 'down';
@@ -948,7 +948,7 @@ class MoveDownByDisplayLine extends MoveByScreenLine {
 class MoveUpByScreenLineVisualLine extends MoveByScreenLine {
   modes = [Mode.VisualLine];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   movementType: CursorMovePosition = 'up';
@@ -960,7 +960,7 @@ class MoveUpByScreenLineVisualLine extends MoveByScreenLine {
 class MoveDownByScreenLineVisualLine extends MoveByScreenLine {
   modes = [Mode.VisualLine];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   movementType: CursorMovePosition = 'down';
@@ -972,7 +972,7 @@ class MoveDownByScreenLineVisualLine extends MoveByScreenLine {
 class MoveUpByScreenLineVisualBlock extends BaseMovement {
   modes = [Mode.VisualBlock];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   preservesDesiredColumn() {
@@ -993,7 +993,7 @@ class MoveUpByScreenLineVisualBlock extends BaseMovement {
 class MoveDownByScreenLineVisualBlock extends BaseMovement {
   modes = [Mode.VisualBlock];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   preservesDesiredColumn() {
@@ -1029,7 +1029,7 @@ class MoveScreenToRight extends MoveByScreenLine {
 @RegisterAction
 class MoveScreenToLeft extends MoveByScreenLine {
   modes = [Mode.Insert, Mode.Normal, Mode.Visual, Mode.VisualLine];
-  keys = ['z', 'l'];
+  keys = ['z', 'i'];
   movementType: CursorMovePosition = 'left';
   by: CursorMoveByUnit = 'character';
   value = 1;
